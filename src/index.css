@@ -3,12 +3,10 @@
 @tailwind utilities;
 
 :root {
-  line-height: 1.5;
-  font-weight: 400;
-
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary: #1a1a1a;
+  --secondary: #e5e7eb;
+  --tertiary: #616161;
+  --quaternary: #757575;
 }
 
 * {

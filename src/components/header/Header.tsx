@@ -44,20 +44,20 @@ const Header = () => {
 
   return (
     <header className="w-full flex flex-col items-center p-7 text-primary">
-      <nav className="container w-full flex justify-between items-center gap-6">
+      <nav className="container w-full flex justify-between items-center gap-6 lg:px-6">
         <Link to={"/"} className="font-semibold text-2xl italic">
           E Clothing
         </Link>
 
         <ul className="hidden gap-10 items-center lg:flex">
-          <li className="font-medium cursor-pointer hover:text-primary">
+          <li className="text-tertiary cursor-pointer hover:text-primary">
             <Link to={"/"}>Home</Link>
           </li>
           <li className="text-tertiary cursor-pointer hover:text-primary">
-            <Link to={"/"}>Best Sellers</Link>
+            <Link to={"/"}>Categories</Link>
           </li>
           <li className="text-tertiary cursor-pointer hover:text-primary">
-            <Link to={"/"}>Categories</Link>
+            <Link to={"/"}>Best Sellers</Link>
           </li>
           <li className="text-tertiary cursor-pointer hover:text-primary">
             <Link to={"/"}>Products</Link>

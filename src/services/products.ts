@@ -19,7 +19,19 @@ export const productsApi = createApi({
         method: "GET",
       }),
     }),
+    getElectronics: builder.query<IProduct[], void>({
+      query: () => ({
+        url: "/products/category/electronics?limit=4",
+        method: "GET",
+      }),
+    }),
+    getJewelery: builder.query<IProduct[], void>({
+      query: () => ({
+        url: "/products/category/jewelery?limit=4",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetMensClothingQuery, useGetWomensClothingQuery } = productsApi;
+export const { useGetMensClothingQuery, useGetWomensClothingQuery, useGetElectronicsQuery, useGetJeweleryQuery } = productsApi;

@@ -24,7 +24,7 @@ export default function BannerCarousel() {
 
   return (
     <section className="flex justify-center sm:mt-6">
-      <div className="container w-full sm:w-11/12 overflow-hidden flex items-center relative" style={{ maxHeight: "570px" }}>
+      <div className="container w-full overflow-hidden flex items-center relative" style={{ maxHeight: "570px" }}>
         <Swiper
           id="swiper"
           spaceBetween={20}
@@ -33,13 +33,13 @@ export default function BannerCarousel() {
           autoplay={{ delay: 3000 }}
           pagination={{ clickable: true }}
           onSwiper={setSwiper}
-          className="flex text-lg overflow-x-hidden mt-4"
+          className="flex text-lg overflow-x-hidden mt-4 w-full md:w-11/12"
         >
           <SwiperSlide key={1}>
             <img
               src={ClothingBanner}
               alt="clothing banner"
-              className="rounded w-full "
+              className="rounded w-full"
             />
           </SwiperSlide>
           <SwiperSlide key={2}>

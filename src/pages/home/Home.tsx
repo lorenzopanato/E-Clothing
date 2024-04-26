@@ -8,6 +8,7 @@ import {
 } from "../../services/products";
 import ProductCard from "../../components/productCard/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Footer from "../../components/footer/Footer";
 
 export default function Home() {
   const { data: mensClothing } = useGetMensClothingQuery();
@@ -25,6 +26,7 @@ export default function Home() {
             Men's clothing
           </h2>
           <Swiper
+            spaceBetween={20}
             slidesPerView={1.2}
             breakpoints={{
               420: {
@@ -46,7 +48,7 @@ export default function Home() {
                 slidesPerView: 4,
               },
             }}
-            className="overflow-x-hidden flex mt-12 text-lg w-full p-5 gap-10"
+            className="overflow-x-hidden flex mt-12 text-lg w-full p-5"
           >
             {mensClothing?.map((product, index) => (
               <SwiperSlide key={index}>
@@ -92,7 +94,7 @@ export default function Home() {
           </Swiper>
         </section>
 
-        <section className="flex flex-col items-center w-full max-w-7xl mt-24 mb-96">
+        <section className="flex flex-col items-center w-full max-w-7xl mt-24 mb-32">
           <h2 className="flex justify-center w-full font-medium text-3xl">
             Electronics
           </h2>
@@ -128,6 +130,7 @@ export default function Home() {
           </Swiper>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

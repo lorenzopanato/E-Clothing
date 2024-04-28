@@ -17,7 +17,10 @@ const Header = () => {
       sx={{ textAlign: "center", color: "var(--secondary)" }}
     >
       <div className="px-10 pt-6 pb-12 flex items-center justify-between">
-        <Link to={"/"} className="font-semibold text-2xl italic hover:text-white">
+        <Link
+          to={"/"}
+          className="font-semibold text-2xl italic hover:text-white"
+        >
           E Clothing
         </Link>
         <LuX size={30} className="cursor-pointer hover:text-white" />
@@ -27,13 +30,13 @@ const Header = () => {
           <Link to={"/"}>Home</Link>
         </li>
         <li className="cursor-pointer hover:text-white">
-          <Link to={"/"}>Best Sellers</Link>
+          <Link to={"/"}>Products</Link>
+        </li>
+        <li className="cursor-pointer hover:text-white">
+          <Link to={"/"}>About us</Link>
         </li>
         <li className="cursor-pointer hover:text-white">
           <Link to={"/"}>Categories</Link>
-        </li>
-        <li className="cursor-pointer hover:text-white">
-          <Link to={"/"}>Products</Link>
         </li>
       </ul>
     </Box>
@@ -49,18 +52,18 @@ const Header = () => {
           E Clothing
         </Link>
 
-        <ul className="hidden gap-10 items-center lg:flex">
-          <li className="text-tertiary cursor-pointer hover:text-primary">
+        <ul className="hidden gap-8 mt-2 lg:flex">
+          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="text-tertiary cursor-pointer hover:text-primary">
-            <Link to={"/"}>Categories</Link>
+          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+            <Link to={"/products"}>Products</Link>
           </li>
-          <li className="text-tertiary cursor-pointer hover:text-primary">
-            <Link to={"/"}>Best Sellers</Link>
+          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+            <Link to={"/"}>About us</Link>
           </li>
-          <li className="text-tertiary cursor-pointer hover:text-primary">
-            <Link to={"/"}>Products</Link>
+          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+            <Link to={"/products"}>Categories</Link>
           </li>
         </ul>
 

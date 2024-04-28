@@ -1,6 +1,9 @@
-import ClothingBanner from "../../assets/clothing.png";
-import EletronicsBanner from "../../assets/eletronics.png";
-import JaweleryBanner from "../../assets/jewelery.png";
+import ClothingBanner from "../../assets/clothing.webp";
+import EletronicsBanner from "../../assets/eletronics.webp";
+import JaweleryBanner from "../../assets/jewelery.webp";
+import ClothingMobileBanner from "../../assets/clothing-mobile.webp";
+import EletronicsMobileBanner from "../../assets/electronics-mobile.webp";
+import JaweleryMobileBanner from "../../assets/jewelery-mobile.webp";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,8 +26,8 @@ export default function BannerCarousel() {
 
 
   return (
-    <section className="flex justify-center sm:mt-6">
-      <div className="container w-full overflow-hidden flex items-center relative" style={{ maxHeight: "570px" }}>
+    <section className="flex justify-center sm:mt-6 w-full">
+      <div className="w-full overflow-hidden flex items-center rounded relative" style={{ maxHeight: "570px", maxWidth: "1440px" }}>
         <Swiper
           id="swiper"
           spaceBetween={20}
@@ -33,27 +36,48 @@ export default function BannerCarousel() {
           autoplay={{ delay: 3000 }}
           pagination={{ clickable: true }}
           onSwiper={setSwiper}
-          className="flex text-lg overflow-x-hidden mt-4 w-full md:w-11/12"
+          className="flex text-lg mt-4 w-full"
         >
-          <SwiperSlide key={1}>
+          <SwiperSlide key={1} className="flex items-end">
             <img
               src={ClothingBanner}
               alt="clothing banner"
-              className="rounded w-full"
+              className="rounded w-full hidden sm:block"
+              loading="lazy"
+            />
+            <img
+              src={ClothingMobileBanner}
+              alt="clothing mobile banner"
+              className="rounded w-full block sm:hidden"
+              loading="lazy"
             />
           </SwiperSlide>
           <SwiperSlide key={2}>
             <img
               src={EletronicsBanner}
               alt="clothing banner"
-              className="rounded w-full "
+              className="rounded w-full hidden sm:block"
+              loading="lazy"
+            />
+            <img
+              src={EletronicsMobileBanner}
+              alt="clothing mobile banner"
+              className="rounded w-full block sm:hidden"
+              loading="lazy"
             />
           </SwiperSlide>
           <SwiperSlide key={3}>
             <img
               src={JaweleryBanner}
               alt="clothing banner"
-              className="rounded w-full "
+              className="rounded w-full hidden sm:block"
+              loading="lazy"
+            />
+            <img
+              src={JaweleryMobileBanner}
+              alt="clothing mobile banner"
+              className="rounded w-full block sm:hidden"
+              loading="lazy"
             />
           </SwiperSlide>
         </Swiper>

@@ -40,13 +40,13 @@ export default function Home() {
         <BannerCarousel />
         <section className="flex max-w-7xl flex-col items-center w-full mt-24">
           <div className="w-full flex flex-col sm:flex-row gap-y-2 justify-between items-center px-6">
-            <h2 className="font-medium text-3xl">Men's clothing</h2>
+            <h2 className="font-semibold text-3xl">Men's clothing</h2>
             <Link to={"/products"} className="hover:underline">
               Check out all products
             </Link>
           </div>
           <Swiper
-            spaceBetween={80}
+            spaceBetween={45}
             slidesPerView={1.5}
             breakpoints={{
               500: {
@@ -74,7 +74,7 @@ export default function Home() {
                 slidesPerView: 4,
               },
             }}
-            className="overflow-x-hidden flex mt-6 text-lg w-full p-5"
+            className="flex mt-6 text-lg w-full p-5"
           >
             {mensClothing?.map((product, index) => (
               <SwiperSlide key={index}>
@@ -84,15 +84,15 @@ export default function Home() {
           </Swiper>
         </section>
 
-        <section className="flex flex-col items-center w-full max-w-7xl mt-24">
+        <section className="flex flex-col items-center w-full max-w-7xl mt-12">
           <div className="w-full flex flex-col sm:flex-row gap-y-2 justify-between items-center px-6">
-            <h2 className="font-medium text-3xl">Women's clothing</h2>
+            <h2 className="font-semibold text-3xl">Women's clothing</h2>
             <Link to={"/products"} className="hover:underline">
               Check out all products
             </Link>
           </div>
           <Swiper
-            spaceBetween={80}
+            spaceBetween={45}
             slidesPerView={1.5}
             breakpoints={{
               500: {
@@ -120,7 +120,7 @@ export default function Home() {
                 slidesPerView: 4,
               },
             }}
-            className="overflow-x-hidden flex mt-6 text-lg w-full p-5"
+            className="flex mt-6 text-lg w-full p-5"
           >
             {womensClothing?.map((product, index) => (
               <SwiperSlide key={index}>
@@ -130,15 +130,15 @@ export default function Home() {
           </Swiper>
         </section>
 
-        <section className="flex flex-col items-center w-full max-w-7xl mt-24">
+        <section className="flex flex-col items-center w-full max-w-7xl mt-12">
           <div className="w-full flex flex-col sm:flex-row gap-y-2 justify-between items-center px-6">
-            <h2 className="font-medium text-3xl">Electronics</h2>
+            <h2 className="font-semibold text-3xl">Electronics</h2>
             <Link to={"/products"} className="hover:underline">
               Check out all products
             </Link>
           </div>
           <Swiper
-            spaceBetween={80}
+            spaceBetween={45}
             slidesPerView={1.5}
             breakpoints={{
               500: {
@@ -166,7 +166,7 @@ export default function Home() {
                 slidesPerView: 4,
               },
             }}
-            className="overflow-x-hidden flex mt-6 text-lg w-full p-5"
+            className="flex mt-6 text-lg w-full p-5"
           >
             {electronics?.map((product, index) => (
               <SwiperSlide key={index}>
@@ -176,15 +176,15 @@ export default function Home() {
           </Swiper>
         </section>
 
-        <section className="flex flex-col items-center w-full max-w-7xl mt-24 mb-32">
+        <section className="flex flex-col items-center w-full max-w-7xl mt-12 mb-32">
           <div className="w-full flex flex-col sm:flex-row gap-y-2 justify-between items-center px-6">
-            <h2 className="font-medium text-3xl">Jewelery</h2>
+            <h2 className="font-semibold text-3xl">Jewelery</h2>
             <Link to={"/products"} className="hover:underline">
               Check out all products
             </Link>
           </div>
           <Swiper
-            spaceBetween={80}
+            spaceBetween={45}
             slidesPerView={1.5}
             breakpoints={{
               500: {
@@ -212,7 +212,7 @@ export default function Home() {
                 slidesPerView: 4,
               },
             }}
-            className="overflow-x-hidden flex mt-6 text-lg w-full p-5"
+            className="flex mt-6 text-lg w-full p-5"
           >
             {jewelery?.map((product, index) => (
               <SwiperSlide key={index}>

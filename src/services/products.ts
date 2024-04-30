@@ -31,7 +31,26 @@ export const productsApi = createApi({
         method: "GET",
       }),
     }),
+    getProductById: builder.query<IProduct, number>({
+      query: (id: number) => ({
+        url: `/products/${id}`,
+        method: "GET",
+      }),
+    }),
+    getProductsByCategory: builder.query<IProduct[], string | undefined>({
+      query: (category: string) => ({
+        url: `/products/category/${category}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetMensClothingQuery, useGetWomensClothingQuery, useGetElectronicsQuery, useGetJeweleryQuery } = productsApi;
+export const {
+  useGetMensClothingQuery,
+  useGetWomensClothingQuery,
+  useGetElectronicsQuery,
+  useGetJeweleryQuery,
+  useGetProductByIdQuery,
+  useGetProductsByCategoryQuery,
+} = productsApi;

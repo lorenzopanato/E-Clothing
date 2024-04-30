@@ -46,41 +46,41 @@ const Header = () => {
     window !== undefined ? () => window.document.body : undefined;
 
   return (
-    <header className="w-full flex flex-col items-center p-7 text-primary">
+    <header className="w-full flex flex-col items-center p-7">
       <nav className="container w-full flex justify-between items-center gap-6 lg:px-6">
-        <Link to={"/"} className="font-semibold text-2xl italic">
+        <Link to={"/"} className="font-bold text-2xl italic text-primary">
           E Clothing
         </Link>
 
-        <ul className="hidden gap-8 mt-2 lg:flex">
-          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+        <ul className="hidden gap-8 mt-2 lg:flex text-black">
+          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/products"}>Products</Link>
           </li>
-          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/"}>About us</Link>
           </li>
-          <li className="text-tertiary cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/products"}>Categories</Link>
           </li>
         </ul>
 
         <div className="flex gap-3 items-center">
-          <div className="hidden md:flex w-64">
+          <div className="hidden md:flex w-64 hover:text-primary">
             <SearchBar />
           </div>
-          <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
+          <div className="p-3 rounded-full transition-colors cursor-pointer hover:text-primary">
             <LuHeart size={24} />
           </div>
-          <div className="p-3 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
+          <div className="p-3 rounded-full transition-colors cursor-pointer hover:text-primary">
             <LuShoppingCart id="cartIcon" size={24} />
           </div>
 
           <div
             onClick={handleDrawerToggle}
-            className="block lg:hidden p-3 rounded-full cursor-pointer hover:bg-gray-100 transition-colors"
+            className="block lg:hidden p-3 rounded-full cursor-pointer hover:text-primary transition-colors"
           >
             <LuMenu size={26} />
           </div>

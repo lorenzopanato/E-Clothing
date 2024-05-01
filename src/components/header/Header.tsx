@@ -35,9 +35,6 @@ const Header = () => {
         <li className="cursor-pointer hover:text-white">
           <Link to={"/"}>About us</Link>
         </li>
-        <li className="cursor-pointer hover:text-white">
-          <Link to={"/"}>Categories</Link>
-        </li>
       </ul>
     </Box>
   );
@@ -52,18 +49,15 @@ const Header = () => {
           E Clothing
         </Link>
 
-        <ul className="hidden gap-8 mt-2 lg:flex text-black">
-          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+        <ul className="hidden mt-2 lg:flex text-black">
+          <li className="cursor-pointer mr-6 hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+          <li className="cursor-pointer mr-8 hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/products"}>Products</Link>
           </li>
           <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
             <Link to={"/"}>About us</Link>
-          </li>
-          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
-            <Link to={"/products"}>Categories</Link>
           </li>
         </ul>
 

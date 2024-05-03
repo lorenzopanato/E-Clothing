@@ -1,6 +1,6 @@
-import ClothingBanner from "../../assets/clothing.webp";
-import EletronicsBanner from "../../assets/eletronics.webp";
-import JaweleryBanner from "../../assets/jewelery.webp";
+import ClothingBanner from "../../assets/clothing.png";
+import EletronicsBanner from "../../assets/eletronics.png";
+import JaweleryBanner from "../../assets/jewelery.png";
 import ClothingMobileBanner from "../../assets/clothing-mobile.webp";
 import EletronicsMobileBanner from "../../assets/electronics-mobile.webp";
 import JaweleryMobileBanner from "../../assets/jewelery-mobile.webp";
@@ -26,8 +26,8 @@ export default function BannerCarousel() {
 
 
   return (
-    <section className="flex justify-center sm:mt-6 w-full">
-      <div className="w-full overflow-hidden flex items-center rounded relative" style={{ maxHeight: "570px", maxWidth: "1440px" }}>
+    <section className="flex justify-center w-full">
+      <div className="w-full overflow-hidden flex items-center rounded relative max-h-[600px] max-w-[1440px] object-f">
         <Swiper
           id="swiper"
           spaceBetween={20}

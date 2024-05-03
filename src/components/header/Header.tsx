@@ -1,11 +1,12 @@
 import { Box, Drawer } from "@mui/material";
 import { useState } from "react";
 import { LuHeart, LuMenu, LuShoppingCart, LuX } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -50,13 +51,13 @@ const Header = () => {
         </Link>
 
         <ul className="hidden mt-2 lg:flex text-black">
-          <li className="cursor-pointer mr-6 hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+          <li className={`cursor-pointer mr-6 ${location.pathname === "/" ? "text-primary border-primary font-medium" : "border-transparent"} hover:text-primary border-b-2 transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center`}>
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="cursor-pointer mr-8 hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+          <li className={`cursor-pointer mr-8 ${location.pathname === "/products" ? "text-primary border-primary font-medium" : "border-transparent"} hover:text-primary border-b-2 transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center`}>
             <Link to={"/products"}>Products</Link>
           </li>
-          <li className="cursor-pointer hover:text-primary border-b-2 border-transparent transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center">
+          <li className={`cursor-pointer ${location.pathname === "/about-us" ? "text-primary border-primary font-medium" : "border-transparent"} hover:text-primary border-b-2 transition-all hover:border-primary pb-2 hover:font-medium w-20 flex justify-center`}>
             <Link to={"/"}>About us</Link>
           </li>
         </ul>

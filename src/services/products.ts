@@ -43,6 +43,12 @@ export const productsApi = createApi({
         method: "GET",
       }),
     }),
+    getAllProducts: builder.query<IProduct[], void>({
+      query: () => ({
+        url: "/products",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -53,4 +59,5 @@ export const {
   useGetJeweleryQuery,
   useGetProductByIdQuery,
   useGetProductsByCategoryQuery,
+  useGetAllProductsQuery,
 } = productsApi;

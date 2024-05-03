@@ -5,9 +5,7 @@ import {
   useGetProductByIdQuery,
   useGetProductsByCategoryQuery,
 } from "../../services/products";
-import { LuStar } from "react-icons/lu";
 import Footer from "../../components/footer/Footer";
-import ProductCard from "../../components/productCard/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card, Skeleton, Tab, Tabs } from "@mui/material";
 import { useState } from "react";

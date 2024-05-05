@@ -210,7 +210,7 @@ export default function Product() {
           >
             {productsByCategory?.map((p) => (
               <SwiperSlide key={p.id}>
-                <ProductCard key={p.id} product={p} />
+                <ProductCard product={p} />
               </SwiperSlide>
             ))}
           </Swiper>

@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { productsApi } from "../services/products";
+import productsReducer from "../slices/productsSlice";
 
 export const store = configureStore({
   reducer: {
+    products: productsReducer,
     [productsApi.reducerPath]: productsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -10,5 +12,4 @@ export const store = configureStore({
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-
 export type AppDispatch = typeof store.dispatch;

@@ -1,15 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
 import Product from "./pages/product/Product";
-import Products from "./pages/products/Products";
+import Catalog from "./pages/catalog/Catalog";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Catalog />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route path="/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
   );

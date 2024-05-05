@@ -7,7 +7,6 @@ import JaweleryMobileBanner from "../../assets/jewelery-mobile.webp";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -27,13 +26,11 @@ export default function BannerCarousel() {
 
   return (
     <section className="flex justify-center w-full">
-      <div className="w-full overflow-hidden flex items-center rounded relative max-h-[600px] max-w-[1440px] object-f">
+      <div className="w-full overflow-hidden flex items-center rounded relative max-h-[620px] max-w-[1440px] object-f">
         <Swiper
           id="swiper"
           spaceBetween={20}
           slidesPerView={1}
-          modules={[Autoplay]}
-          autoplay={{ delay: 3000 }}
           pagination={{ clickable: true }}
           onSwiper={setSwiper}
           className="flex text-lg mt-4 w-full"
@@ -82,8 +79,8 @@ export default function BannerCarousel() {
           </SwiperSlide>
         </Swiper>
         <div className="flex justify-between w-full absolute items-center h-full">
-          <LuChevronLeft size={64} onClick={handleScrollLeft} className="text-gray-500 z-50 opacity-30 cursor-pointer hover:opacity-40" />
-          <LuChevronRight size={64} onClick={handleScrollRight} className="text-gray-400 z-50 opacity-30 cursor-pointer hover:opacity-40" />
+          <LuChevronLeft size={64} onClick={handleScrollLeft} className="text-zinc-200 z-50 cursor-pointer" />
+          <LuChevronRight size={64} onClick={handleScrollRight} className="text-zinc-200 z-50 cursor-pointer" />
         </div>
       </div>
     </section>

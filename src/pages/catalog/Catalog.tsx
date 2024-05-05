@@ -48,11 +48,11 @@ export default function Catalog() {
       <SubHeader />
       <Header />
 
-      <main className="flex flex-col items-center px-4 sm:px-11 md:mt-20 mb-36 overflow-x-hidden">
+      <main className="flex flex-col items-center px-4 sm:px-11 mt-5 md:mt-20 mb-36 overflow-x-hidden">
         <div className="max-w-screen-2xl w-full flex gap-16">
           <section
-            className={`min-w-64 max-w-80 w-full hidden lg:${
-              isFilterOpen ? "block" : "hidden"
+            className={`min-w-64 max-w-80 w-full hidden ${
+              isFilterOpen ? "lg:block" : "lg:hidden"
             }`}
           >
             <FilterMenu />

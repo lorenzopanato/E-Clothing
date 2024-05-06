@@ -4,7 +4,7 @@ import SearchBar from "../searchBar/SearchBar";
 
 const Header = () => {
   return (
-    <header className="w-full flex flex-col items-center p-7">
+    <header className="w-full flex flex-col items-center p-5 sm:p-7">
       <nav className="container w-full flex justify-between items-center gap-6 lg:px-6">
         <Link to={"/"} className="font-bold text-2xl italic text-primary">
           E Clothing

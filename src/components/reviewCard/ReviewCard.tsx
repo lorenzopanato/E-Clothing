@@ -11,7 +11,7 @@ function ReviewCard() {
           alt="imagem do usuario"
         />
         <div>
-          <p>Mark Williams</p>
+          <p className="text-sm sm:text-base">Mark Williams</p>
           <span className="flex items-center gap-1 text-sm mt-1">
             <MdStar size={16} /> 
             <MdStar size={16} />
@@ -22,7 +22,7 @@ function ReviewCard() {
           </span>
         </div>
       </div>
-      <p className="font-semibold py-1">Excellent product!!</p>
+      <p className="font-semibold text-sm sm:text-base py-1">Excellent product!!</p>
       <p className="mb-2 text-sm">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi odio
         nesciunt perspiciatis facilis? Suscipit rerum, odit dolor provident

@@ -5,14 +5,16 @@ import {
   useGetProductByIdQuery,
   useGetProductsByCategoryQuery,
 } from "../../services/products";
-import { LuStar } from "react-icons/lu";
+import { LuChevronLeft, LuChevronRight, LuStar } from "react-icons/lu";
 import Footer from "../../components/footer/Footer";
 import ProductCard from "../../components/productCard/ProductCard";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
 import ProductSkeleton from "./ProductSkeleton";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Product() {
   const { id } = useParams();
@@ -22,6 +24,15 @@ export default function Product() {
   const { data: productsByCategory, isLoading: isLoadingCategoryProducts } =
     useGetProductsByCategoryQuery(product?.category);
   const [tab, setTab] = useState<number>(0);
+  const [slider, setSlider] = useState<any>(null);
+
+  const nextSlide = () => {
+    slider.slickNext();
+  };
+
+  const prevSlide = () => {
+    slider.slickPrev();
+  };
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     event.preventDefault();
@@ -43,16 +54,70 @@ export default function Product() {
   };
 
   if (isLoadingCategoryProducts || isLoadingProduct) {
-    return <ProductSkeleton></ProductSkeleton>
+    return <ProductSkeleton></ProductSkeleton>;
   }
+
+  var sliderSettings = {
+    dots: true,
+    speed: 500,
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3.5,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 1040,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 2.5,
+        },
+      },
+      {
+        breakpoint: 740,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 625,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1.5,
+        },
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <>
       <SubHeader />
       <Header />
 
-      <main className="mt-16 mb-36 flex flex-col items-center">
-        <section className="flex flex-col px-6 lg:flex-row items-center lg:items-start gap-16 lg:gap-32 justify-center max-w-screen-xl">
+      <main className="mt-5 sm:mt-16 mb-36 flex flex-col items-center">
+        <section className="flex flex-col px-6 lg:flex-row items-center lg:items-start gap-8 sm:gap-16 lg:gap-32 justify-center max-w-screen-xl">
           <img
             src={product?.image}
             alt={`imagem do produto ${product?.title}`}
@@ -60,15 +125,15 @@ export default function Product() {
           />
 
           <div className="w-full lg:max-w-xl flex flex-col">
-            <p className="font-medium">
+            <p className="font-medium text-sm sm:text-base">
               {product?.category.charAt(0).toUpperCase()}
               {product?.category.slice(1)} //{" "}
               <strong className="text-primary font-semibold">
                 {product?.title}
               </strong>
             </p>
-            <h1 className="font-semibold text-3xl mt-2">{product?.title}</h1>
-            <p className="mt-4">{product?.description}</p>
+            <h1 className="font-semibold text-2xl sm:text-3xl mt-2">{product?.title}</h1>
+            <p className="mt-2 sm:mt-4 text-sm sm:text-base text-justify">{product?.description}</p>
             <p className="flex gap-2 items-center mt-4">
               <LuStar size={21} />
               <LuStar size={21} />
@@ -79,15 +144,15 @@ export default function Product() {
               <span>({product?.rating.count} Reviews)</span>
             </p>
             <div className="flex gap-3 items-center mt-8">
-              <p className="font-semibold text-2xl">
+              <p className="font-semibold text-xl sm:text-2xl">
                 ${" "}
                 {product && (product?.price - product?.price * 0.2).toFixed(2)}
               </p>
-              <p className="text-gray-400 line-through text-xl">
+              <p className="text-gray-400 line-through text-lg sm:text-xl">
                 $ {product?.price.toFixed(2)}
               </p>
             </div>
-            <p className="font-medium mt-1">
+            <p className="font-medium mt-1 text-sm sm:text-base">
               Up to 10 x $ {product && (product?.price / 10).toFixed(2)}{" "}
               interest free
             </p>
@@ -147,24 +212,28 @@ export default function Product() {
             />
           </Tabs>
           <CustomTabPanel value={tab} index={0}>
-            <p>{product?.description}</p>
+            <p className="text-justify text-sm sm:text-base">
+              {product?.description}
+            </p>
           </CustomTabPanel>
           <CustomTabPanel value={tab} index={1}>
-            <div>
-              <span className="font-semibold">Category: </span>
-              <span>{product?.category}</span>
-            </div>
-            <div className="mt-2">
-              <span className="font-semibold">Original price: </span>
-              <span>$ {product?.price.toFixed(2)}</span>
-            </div>
-            <div className="mt-2">
-              <span className="font-semibold">Rating: </span>
-              <span>{product?.rating.rate}</span>
-            </div>
-            <div className="mt-2">
-              <span className="font-semibold">Reviews: </span>
-              <span>{product?.rating.count}</span>
+            <div className="text-sm sm:text-base">
+              <div>
+                <span className="font-semibold">Category: </span>
+                <span>{product?.category}</span>
+              </div>
+              <div className="mt-2">
+                <span className="font-semibold">Original price: </span>
+                <span>$ {product?.price.toFixed(2)}</span>
+              </div>
+              <div className="mt-2">
+                <span className="font-semibold">Rating: </span>
+                <span>{product?.rating.rate}</span>
+              </div>
+              <div className="mt-2">
+                <span className="font-semibold">Reviews: </span>
+                <span>{product?.rating.count}</span>
+              </div>
             </div>
           </CustomTabPanel>
           <CustomTabPanel value={tab} index={2}>
@@ -175,45 +244,36 @@ export default function Product() {
           </CustomTabPanel>
         </section>
         <hr className="w-full max-w-screen-xl" />
-        <section className="text-start w-full max-w-screen-xl mt-16 px-4">
-          <h2 className="font-medium text-2xl mb-4">Related Products</h2>
-          <Swiper
-            spaceBetween={60}
-            slidesPerView={1.3}
-            breakpoints={{
-              500: {
-                slidesPerView: 1.8,
-              },
-              580: {
-                slidesPerView: 2.3,
-              },
-              740: {
-                slidesPerView: 2.5,
-              },
-              800: {
-                slidesPerView: 2.9,
-              },
-              930: {
-                slidesPerView: 3.4,
-              },
-              1000: {
-                slidesPerView: 3.6,
-              },
-              1124: {
-                slidesPerView: 3.8,
-              },
-              1330: {
-                slidesPerView: 4.4,
-              },
-            }}
-            className="flex mt-6 text-lg w-full"
-          >
-            {productsByCategory?.map((p) => (
-              <SwiperSlide key={p.id}>
-                <ProductCard product={p} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <section className="text-start w-full max-w-screen-xl mt-10 sm:mt-16 px-4 relative">
+          <h2 className="font-medium text-xl sm:text-2xl mb-8">
+            Related Products
+          </h2>
+          <div className="relative">
+            <div className="w-full bottom-[60%] flex justify-between items-center absolute">
+              <LuChevronLeft
+                size={46}
+                className="cursor-pointer z-50"
+                onClick={prevSlide}
+              />
+
+              <LuChevronRight
+                size={46}
+                className="cursor-pointer z-50"
+                onClick={nextSlide}
+              />
+            </div>
+            <div className="px-10">
+              <Slider
+                {...sliderSettings}
+                className="pb-8"
+                ref={(slider) => setSlider(slider)}
+              >
+                {productsByCategory?.map((p) => (
+                  <ProductCard key={p.id} product={p} />
+                ))}
+              </Slider>
+            </div>
+          </div>
         </section>
       </main>
       <Footer />

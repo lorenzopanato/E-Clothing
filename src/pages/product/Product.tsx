@@ -15,6 +15,9 @@ import ProductSkeleton from "./ProductSkeleton";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { addToCart } from "../../slices/cartSlice";
+import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 export default function Product() {
   const { id } = useParams();
@@ -25,6 +28,13 @@ export default function Product() {
     useGetProductsByCategoryQuery(product?.category);
   const [tab, setTab] = useState<number>(0);
   const [slider, setSlider] = useState<any>(null);
+  const dispatch = useDispatch();
+
+  const addProductToCart = () => {
+    if(product !== undefined) {
+      dispatch(addToCart(product));
+    }
+  }
 
   const nextSlide = () => {
     slider.slickNext();
@@ -60,7 +70,7 @@ export default function Product() {
   var sliderSettings = {
     dots: true,
     speed: 500,
-    infinite: false,
+    infinite: true,
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
@@ -133,7 +143,7 @@ export default function Product() {
               </strong>
             </p>
             <h1 className="font-semibold text-2xl sm:text-3xl mt-2">{product?.title}</h1>
-            <p className="mt-2 sm:mt-4 text-sm sm:text-base text-justify">{product?.description}</p>
+            <p className="mt-2 sm:mt-4 text-sm sm:text-base text-justify">{product?.description.slice(0, 400)}</p>
             <p className="flex gap-2 items-center mt-4">
               <LuStar size={21} />
               <LuStar size={21} />
@@ -157,10 +167,10 @@ export default function Product() {
               interest free
             </p>
             <div className="mt-10 lg:mt-16">
-              <button className="w-full p-3.5 rounded text-white border border-primary font-medium bg-primary transition-opacity hover:opacity-90">
+              <button onClick={addProductToCart} className="w-full p-3.5 rounded text-white border border-primary font-medium bg-primary transition-opacity hover:opacity-90">
                 Buy Now
               </button>
-              <button className="w-full p-3.5 rounded text-tertiary mt-3 border font-medium border-primary transition-colors hover:bg-secondary">
+              <button onClick={addProductToCart} className="w-full p-3.5 rounded text-tertiary mt-3 border font-medium border-primary transition-colors hover:bg-secondary">
                 Add to Cart
               </button>
             </div>
@@ -277,6 +287,7 @@ export default function Product() {
         </section>
       </main>
       <Footer />
+      <ToastContainer theme="colored" />
     </>
   );
 }

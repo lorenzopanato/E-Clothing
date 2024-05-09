@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadProducts, sortProducts } from "../../slices/productsSlice";
 import { RootState } from "../../store/store";
 import { Box, Drawer } from "@mui/material";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Catalog() {
   const { data: products } = useGetAllProductsQuery();
@@ -19,7 +21,7 @@ export default function Catalog() {
   const search = useSelector((state: RootState) => state.products.search);
   const [isFilterOpen, setIsFilterOpen] = useState(true);
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
+  const [openFilterDrawer, setOpenFilterDrawer] = useState(false);
 
   useEffect(() => {
     if (products) dispatch(loadProducts(products));
@@ -29,15 +31,15 @@ export default function Catalog() {
     dispatch(sortProducts(data));
   };
 
-  const toggleDrawer = () => {
-    setOpen(!open);
+  const toggleFilterDrawer = () => {
+    setOpenFilterDrawer(!openFilterDrawer);
   };
 
   const toggleFilter = () => {
     setIsFilterOpen(!isFilterOpen);
   };
 
-  const DrawerList = (
+  const DrawerFilter = (
     <Box className="p-6 w-80" role="presentation">
       <FilterMenu />
     </Box>
@@ -48,7 +50,7 @@ export default function Catalog() {
       <SubHeader />
       <Header />
 
-      <main className="flex flex-col items-center px-4 sm:px-11 mt-5 md:mt-20 mb-36 overflow-x-hidden">
+      <main className="flex flex-col items-center px-4 sm:px-11 mt-5 md:mt-16 mb-36 overflow-x-hidden">
         <div className="max-w-screen-2xl w-full flex gap-16">
           <section
             className={`min-w-64 max-w-80 w-full hidden ${
@@ -71,10 +73,10 @@ export default function Catalog() {
                   className="block cursor-pointer transition-colors text-primary hover:text-tertiary"
                   title="Filter"
                   onClick={() => {
-                    if (window.innerWidth < 1024) { 
-                      toggleDrawer(); 
+                    if (window.innerWidth < 1024) {
+                      toggleFilterDrawer();
                     } else {
-                      toggleFilter(); 
+                      toggleFilter();
                     }
                   }}
                 />
@@ -95,7 +97,9 @@ export default function Catalog() {
             </div>
 
             <div
-              className={`flex justify-center lg:${isFilterOpen ? "justify-start" : "justify-center"} gap-1 sm:gap-8 flex-1 flex-wrap`}
+              className={`flex justify-center ${
+                isFilterOpen && "lg:justify-start"
+              } gap-1 sm:gap-6 flex-1 flex-wrap`}
             >
               {filteredProducts.length > 0 ? (
                 filteredProducts?.map((product, index) => (
@@ -108,14 +112,16 @@ export default function Catalog() {
               )}
             </div>
             <div>
-              <Drawer open={open} onClose={toggleDrawer}>
-                {DrawerList}
+              <Drawer open={openFilterDrawer} onClose={toggleFilterDrawer}>
+                {DrawerFilter}
               </Drawer>
             </div>
+            
           </section>
         </div>
       </main>
       <Footer />
+      <ToastContainer autoClose={1500} position="bottom-center" className="sm:w-[450px]" theme="colored" />
     </>
   );
 }

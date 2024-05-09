@@ -9,11 +9,11 @@ import EloLogo from "../../assets/elo.png";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-primary text-secondary text-sm sm:text-base px-7">
+    <footer id="footer" className="w-full bg-primary text-secondary text-sm sm:text-base px-7">
       <section className="container mx-auto">
         <div className="flex flex-wrap gap-7 py-6 border-b border-secondary border-opacity-50 w-full justify-between">
           <div className="flex flex-col gap-8">
-            <strong className="font-medium text-2xl italic">E Clothing</strong>
+            <strong className="font-medium text-xl sm:text-2xl italic">E Clothing</strong>
             <div className="flex flex-col gap-5">
               <div className="flex gap-3 items-center">
                 <LuPhoneCall size={24} />

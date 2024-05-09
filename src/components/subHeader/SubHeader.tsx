@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 export default function SubHeader() {
   return (
@@ -8,7 +9,9 @@ export default function SubHeader() {
         <p>|</p>
         <Link to={"/"}>Sign Up</Link>
         <p>|</p>
-        <Link to={"/"}>Contact us</Link>
+        <ScrollLink to={"footer"} smooth={true} duration={800} className="cursor-pointer">
+          Contact us
+        </ScrollLink>
       </nav>
     </section>
   );

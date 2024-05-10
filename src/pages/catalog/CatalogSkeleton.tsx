@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import FilterMenu from "../../components/filterMenu/FilterMenu";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import ProductCard from "../../components/productCard/ProductCard";
 import SubHeader from "../../components/subHeader/SubHeader";
 import { useGetAllProductsQuery } from "../../services/products";
 import { LuChevronDown, LuSlidersHorizontal } from "react-icons/lu";
@@ -14,11 +13,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Catalog() {
-  const { data: products, isLoading } = useGetAllProductsQuery();
+  const { data: products } = useGetAllProductsQuery();
   const filteredProducts = useSelector(
     (state: RootState) => state.products.products
   );
-  const search = useSelector((state: RootState) => state.products.search);
   const [isFilterOpen, setIsFilterOpen] = useState(true);
   const dispatch = useDispatch();
   const [openFilterDrawer, setOpenFilterDrawer] = useState(false);

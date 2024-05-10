@@ -9,10 +9,9 @@ import { LuChevronDown, LuSlidersHorizontal } from "react-icons/lu";
 import { useDispatch, useSelector } from "react-redux";
 import { loadProducts, sortProducts } from "../../slices/productsSlice";
 import { RootState } from "../../store/store";
-import { Box, Drawer } from "@mui/material";
+import { Box, Card, Drawer, Skeleton } from "@mui/material";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CatalogSkeleton from "./CatalogSkeleton";
 
 export default function Catalog() {
   const { data: products, isLoading } = useGetAllProductsQuery();
@@ -45,10 +44,6 @@ export default function Catalog() {
       <FilterMenu />
     </Box>
   );
-
-  if (isLoading) {
-    return <CatalogSkeleton></CatalogSkeleton>;
-  }
 
   return (
     <>
@@ -106,27 +101,51 @@ export default function Catalog() {
                 isFilterOpen && "lg:justify-start"
               } gap-1 sm:gap-6 flex-1 flex-wrap`}
             >
-              {filteredProducts.length > 0 ? (
-                filteredProducts?.map((product, index) => (
-                  <ProductCard product={product} key={index} />
-                ))
-              ) : (
-                <p className="font-medium text-xl">
-                  We didn't find any results for "{search}".
-                </p>
-              )}
+              {[...Array(20)].map((_, index) => (
+                <Card
+                  key={index}
+                  className="rounded flex-1 min-w-44 sm:min-w-60 lg:flex-1 lg:max-w-64group pt-2 pb-4 flex flex-col transition-shadow relative hover:shadow-md"
+                >
+                  <Skeleton
+                    variant="rectangular"
+                    width={"100%"}
+                    height={280}
+                    className="mb-2"
+                  />
+                  <Skeleton variant="text" height={40} className="mx-3" />
+                  <Skeleton variant="text" height={80} className="mx-3" />
+                  <div className="flex justify-between">
+                    <Skeleton
+                      variant="text"
+                      width={140}
+                      height={35}
+                      className="ml-3"
+                    />
+                    <Skeleton
+                      variant="text"
+                      width={80}
+                      height={35}
+                      className="mr-3"
+                    />
+                  </div>
+                </Card>
+              ))}
             </div>
             <div>
               <Drawer open={openFilterDrawer} onClose={toggleFilterDrawer}>
                 {DrawerFilter}
               </Drawer>
             </div>
-            
           </section>
         </div>
       </main>
       <Footer />
-      <ToastContainer autoClose={1500} position="bottom-center" className="sm:w-[450px]" theme="colored" />
+      <ToastContainer
+        autoClose={1500}
+        position="bottom-center"
+        className="sm:w-[450px]"
+        theme="colored"
+      />
     </>
   );
 }

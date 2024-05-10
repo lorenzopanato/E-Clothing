@@ -32,7 +32,7 @@ export default function Product() {
 
   const addProductToCart = () => {
     if(product !== undefined) {
-      dispatch(addToCart(product));
+      dispatch(addToCart({...product, quantity: 1}));
     }
   }
 
@@ -126,12 +126,12 @@ export default function Product() {
       <SubHeader />
       <Header />
 
-      <main className="mt-5 sm:mt-16 mb-36 flex flex-col items-center">
+      <main className="mt-5 sm:mt-10 mb-36 flex flex-col items-center">
         <section className="flex flex-col px-6 lg:flex-row items-center lg:items-start gap-8 sm:gap-16 lg:gap-32 justify-center max-w-screen-xl">
           <img
             src={product?.image}
             alt={`imagem do produto ${product?.title}`}
-            className="max-w-xs md:max-w-sm xl:max-w-md container w-full"
+            className="max-w-xs md:max-w-sm container w-full"
           />
 
           <div className="w-full lg:max-w-xl flex flex-col">
@@ -166,7 +166,7 @@ export default function Product() {
               Up to 10 x $ {product && (product?.price / 10).toFixed(2)}{" "}
               interest free
             </p>
-            <div className="mt-10 lg:mt-16">
+            <div className="mt-10 xl:mt-16">
               <button onClick={addProductToCart} className="w-full p-3.5 rounded text-white border border-primary font-medium bg-primary transition-opacity hover:opacity-90">
                 Buy Now
               </button>
@@ -287,7 +287,7 @@ export default function Product() {
         </section>
       </main>
       <Footer />
-      <ToastContainer theme="colored" />
+      <ToastContainer autoClose={1500} position="bottom-center" className="sm:w-[450px]" theme="colored" />
     </>
   );
 }

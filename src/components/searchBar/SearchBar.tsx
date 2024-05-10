@@ -25,7 +25,7 @@ export default function SearchBar() {
         className="px-6 py-2.5 w-full border border-gray-200 rounded-3xl focus:outline-none focus:bg-slate-200 bg-secondary transition-colors hover:opacity-90"
       />
       <button className="relative flex items-center" onClick={() => search(searched)}>
-        <LuSearch size={22} className="absolute right-0 text-tertiary mr-6" />
+        <LuSearch size={24} className="absolute right-0 text-tertiary mr-6" />
       </button>
     </div>
   );

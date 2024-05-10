@@ -1,4 +1,4 @@
-import { LuArrowRight, LuHeart, LuShoppingCart } from "react-icons/lu";
+import { LuArrowRight, LuShoppingCart } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import { Box, Drawer } from "@mui/material";
@@ -11,6 +11,9 @@ import EmptyCart from "../../assets/empty-cart.png";
 const Header = () => {
   const [openCartDrawer, setOpenCartDrawer] = useState(false);
   const cartItems = useSelector((state: RootState) => state.cart.products);
+  const discountedSubtotal = useSelector(
+    (state: RootState) => state.cart.discountedSubtotal
+  );
   const subtotal = useSelector((state: RootState) => state.cart.subtotal);
   const navigate = useNavigate();
 
@@ -41,9 +44,14 @@ const Header = () => {
             ))}
 
             <div className="flex flex-col items-end gap-4 mt-10">
-              <div className="flex gap-2 font-semibold w-full">
-                <span>Subtotal:</span>
-                <span>$ {subtotal.toFixed(2)}</span>
+              <div className="flex gap-2 w-full">
+                <span className="font-semibold">Subtotal:</span>
+                <span className="font-semibold">
+                  $ {discountedSubtotal.toFixed(2)}
+                </span>
+                <span className="text-gray-500 line-through">
+                  $ {subtotal.toFixed(2)}
+                </span>
               </div>
               <button className="w-full mb-6 p-3 font-medium text-white bg-primary transition-opacity hover:opacity-90">
                 Finalize Purchase
@@ -90,15 +98,11 @@ const Header = () => {
             <SearchBar />
           </div>
 
-          <LuHeart className="cursor-pointer hover:text-primary" size={24} />
-
-          <div className="relative">
-            <LuShoppingCart
-              onClick={toggleCartDrawer}
-              className="cursor-pointer hover:text-primary"
-              id="cartIcon"
-              size={24}
-            />
+          <div
+            onClick={toggleCartDrawer}
+            className="cursor-pointer relative hover:text-primary"
+          >
+            <LuShoppingCart id="cartIcon" size={26} />
             <span className="rounded-full bg-primary text-white absolute -top-2.5 -right-2.5 text-xs flex items-center justify-center h-5 w-5 font-semibold">
               {cartItems.length}
             </span>

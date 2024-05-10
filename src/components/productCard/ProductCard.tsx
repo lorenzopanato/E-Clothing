@@ -10,12 +10,11 @@ export default function ProductCard({ product }: { product: IProduct }) {
   const dispatch = useDispatch();
 
   const addProductToCart = () => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({...product, quantity: 1}));
   }
 
   return (
     <div
-      // onClick={() => navigate(`/product/${product.id}`)}
       className={`rounded ${
         location.pathname === "/"
           ? "flex-1 min-w-44 sm:min-w-60 lg:flex-1 lg:max-w-64"
@@ -40,7 +39,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
         </button>
         <Link
           to={`/product/${product.id}`}
-          className="w-12 h-12 bg-secondary hover:bg-slate-100 flex justify-center items-center text-primary shadow-xl"
+          className="w-12 h-12 bg-white hover:bg-slate-100 flex justify-center items-center text-primary shadow-xl"
         >
           <BsEyeFill size={18} />
         </Link>

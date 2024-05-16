@@ -34,12 +34,16 @@ export default function ProductCard({ product }: { product: IProduct }) {
         <button
           className="flex justify-center items-center text-white w-12 h-12 bg-sky-950 hover:bg-primary transition-colors shadow-xl"
           onClick={addProductToCart}
+          aria-label="add-to-cart-button"
+          title="Add to cart"
         >
           <LuShoppingCart color="white" size={22} />
         </button>
         <Link
           to={`/product/${product.id}`}
           className="w-12 h-12 bg-white hover:bg-slate-100 flex justify-center items-center text-primary shadow-xl"
+          aria-label="product-page-button"
+          title="Product page"
         >
           <BsEyeFill size={18} />
         </Link>

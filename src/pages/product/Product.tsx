@@ -167,10 +167,10 @@ export default function Product() {
               interest free
             </p>
             <div className="mt-10 xl:mt-16">
-              <button onClick={addProductToCart} className="w-full p-3.5 rounded text-white border border-primary font-medium bg-primary transition-opacity hover:opacity-90">
+              <button onClick={addProductToCart} aria-label="add-to-cart-button" className="w-full p-3.5 rounded text-white border border-primary font-medium bg-primary transition-opacity hover:opacity-90">
                 Buy Now
               </button>
-              <button onClick={addProductToCart} className="w-full p-3.5 rounded text-tertiary mt-3 border font-medium border-primary transition-colors hover:bg-secondary">
+              <button onClick={addProductToCart} aria-label="add-to-cart-button" className="w-full p-3.5 rounded text-tertiary mt-3 border font-medium border-primary transition-colors hover:bg-secondary">
                 Add to Cart
               </button>
             </div>

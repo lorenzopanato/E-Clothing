@@ -90,10 +90,11 @@ export default function Catalog() {
                     id="sort"
                     className="w-40 md:w-52 border border-gray-400 p-1 px-2.5 text-sm cursor-pointer appearance-none focus-within:outline-none focus-visible:border-primary"
                     onChange={(event) => sort(event.target.value)}
+                    aria-label="sort-products-select"
                   >
-                    <option value="none">More popular</option>
-                    <option value="biggest">Biggest price</option>
-                    <option value="lowest">Lowest price</option>
+                    <option value="none" aria-label="more-popular-option">More popular</option>
+                    <option value="biggest" aria-label="biggest-price-option">Biggest price</option>
+                    <option value="lowest" aria-label="lowest-price-option">Lowest price</option>
                   </select>
 
                   <LuChevronDown size={20} className="absolute right-3" />

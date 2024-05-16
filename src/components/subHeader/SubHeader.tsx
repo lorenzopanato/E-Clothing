@@ -9,7 +9,7 @@ export default function SubHeader() {
         <p>|</p>
         <Link to={"/"}>Sign Up</Link>
         <p>|</p>
-        <ScrollLink to={"footer"} smooth={true} duration={800} className="cursor-pointer">
+        <ScrollLink to={"footer"} href="#footer" smooth={true} duration={800} className="cursor-pointer">
           Contact us
         </ScrollLink>
       </nav>

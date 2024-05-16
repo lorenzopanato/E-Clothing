@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+<h1 align="center">E Clothing</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p>E-Commerce completo, oferecendo uma ampla variedade de produtos e integrado à Fake Store API para obter os dados dos produtos.</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-sobre-o-projeto">Sobre o Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#lighthouse">Lighthouse</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/lorenzopanato/E-Clothing/assets/132415449/479af3e9-8462-4a03-aac8-f4b9af16eed9)
 
-## Expanding the ESLint configuration
+## 🚀 Tecnologias
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- TypeScript
+- Redux
+- Tailwind CSS
+- Material UI
+- Vite
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## 💻 Sobre o Projeto
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Site: [Link para o Vercel](https://e-clothing-silk.vercel.app/)
+
+## Lighthouse
+
+Todos os testes do Lighthouse alcançaram bons desempenhos:
+
+![e-clothing-lighthouse](https://github.com/lorenzopanato/E-Clothing/assets/132415449/35d59b0d-ade4-47d1-9388-d27c3b56d59e)
+

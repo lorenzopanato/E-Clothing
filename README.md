@@ -10,6 +10,9 @@
 
 ![image](https://github.com/lorenzopanato/E-Clothing/assets/132415449/479af3e9-8462-4a03-aac8-f4b9af16eed9)
 
+![image](https://github.com/lorenzopanato/E-Clothing/assets/132415449/7c847ae6-1cbe-4646-a06d-f9351e8ecfcb)
+
+
 ## 🚀 Tecnologias
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
